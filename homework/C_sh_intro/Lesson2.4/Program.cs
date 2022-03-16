@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+/*
+ schematic check printout
+ */
 
 namespace Lesson2._4
 {
@@ -15,8 +15,7 @@ namespace Lesson2._4
             decimal butter = 145.50m;
             decimal pelmeni = 280.00m;
             decimal total = bread + butter + pelmeni;
-
-            // Console.
+            
 
             Console.WriteLine();
             Console.WriteLine("     СПАСИБО");
