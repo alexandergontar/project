@@ -4,51 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1._1
+namespace Lesson1
 {
-    class Program
+    public class FibNumberCalc
     {
-
-        static void TestFib(FibCase test, bool rec) 
-        {
-            try
-            {
-                int result = 0;
-                if (rec)
-                {
-                    result = FibRec(test.Input);
-                }
-                else 
-                { 
-                     result = Fib(test.Input);
-                }                 
-
-                if (result == test.ExpectedResult)
-                {
-                    Console.WriteLine("TEST PASSED");
-                }
-                else 
-                {
-                    Console.WriteLine("TEST NOT PASSED");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.GetType().Name);
-                if (ex.GetType().Name == test.ExpectedException)
-                {
-                    Console.WriteLine("TEST PASSED");
-                }
-                else 
-                {
-                    Console.WriteLine("TEST NOT PASSED");
-                }                
-            }
-        }
-        static int Fib(int end) 
+        static int Fib(int end)
         {
             if (end < 1) throw new ArgumentException("Ввод должен быть > 0");
-            if (end ==1) return 0;
+            if (end == 1) return 0;
             if (end == 2 || end == 3) return 1;
 
             int num0 = 0;
@@ -60,26 +23,68 @@ namespace Lesson1._1
                 num2 = num0 + num1;
                 num0 = num1;
                 num1 = num2;
-            }          
+            }
             return num2;
         }
 
-        static int FibRec(int n) 
+        static int FibRec(int n)
         {
             if (n < 1) throw new ArgumentException("Ввод должен быть > 0");
-            if (n==1 || n==2) 
+            if (n == 1 || n == 2)
             {
                 return n - 1;
-            }                       
-            return FibRec(n - 1)+FibRec(n - 2);            
+            }
+            return FibRec(n - 1) + FibRec(n - 2);
         }
-        static void Main(string[] args)
+        static void TestFib(FibCase test, bool rec)
         {
-            int end=1;
+            Console.Write($"Тест для {test.Input} на входе ");
+            if (rec) Console.WriteLine("рекурсивно");
+            else Console.WriteLine();
+
+            try
+            {
+                int result = 0;
+                if (rec)
+                {
+                    result = FibRec(test.Input);
+                }
+                else
+                {
+                    result = Fib(test.Input);
+                }
+
+                if (result == test.ExpectedResult)
+                {
+                    Console.WriteLine("TEST PASSED");
+                }
+                else
+                {
+                    Console.WriteLine("TEST NOT PASSED");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.GetType().Name);
+                if (ex.GetType().Name == test.ExpectedException)
+                {
+                    Console.WriteLine("TEST PASSED");
+                }
+                else
+                {
+                    Console.WriteLine("TEST NOT PASSED");
+                }
+            }
+        }
+
+        public static void CalculateFib() 
+        {
+            int end = 1;
+            Console.WriteLine("Вычисление значение ряда Фиббоначи по номеру члена.");
             Console.Write("Введите порядковый номер члена ряда: ");
             try
             {
-              end = Convert.ToInt32(Console.ReadLine());
+                end = Convert.ToInt32(Console.ReadLine());
             }
             catch (Exception ex)
             {
@@ -87,10 +92,10 @@ namespace Lesson1._1
             }
 
             try
-            {                      
-            Console.WriteLine("Значение-" + Fib(end));
-            Console.WriteLine("Рекурсивно:");
-            Console.WriteLine("Значение-" + FibRec(end));
+            {
+                Console.WriteLine("Значение-" + Fib(end));
+                Console.WriteLine("Рекурсивно:");
+                Console.WriteLine("Значение-" + FibRec(end));
             }
             catch (Exception ex)
             {
@@ -98,7 +103,8 @@ namespace Lesson1._1
                 Console.WriteLine(ex.Message);
             }
 
-            FibCase test1 = new FibCase() {
+            FibCase test1 = new FibCase()
+            {
                 Input = 8,
                 ExpectedResult = 13
             };
@@ -130,5 +136,6 @@ namespace Lesson1._1
             TestFib(test5, false); TestFib(test5, true);
             Console.ReadKey();
         }
+
     }
 }

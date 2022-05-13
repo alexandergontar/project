@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson1._1
 {
-    public class Test
+    public class FibCase
     {
         public int Input { get; set; }
         public int ExpectedResult { get; set; }
