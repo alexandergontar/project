@@ -8,6 +8,7 @@ namespace Lesson1
 {
     public class PrimeNumberCalc
     {
+        // алгоритм определения простого числа
         static bool PrimeNumber(string n)
         {
             bool result = false;
@@ -126,6 +127,7 @@ namespace Lesson1
             TestPrimeNumber(test4);
             TestPrimeNumber(test5);
 
+            Console.WriteLine("Нажмите любую клавишу для продолжения");
             Console.ReadKey(true);
         }
 

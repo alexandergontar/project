@@ -8,6 +8,7 @@ namespace Lesson1
 {
     public class FibNumberCalc
     {
+        // вычисление значений ряда Фиббоначи
         static int Fib(int end)
         {
             if (end < 1) throw new ArgumentException("Ввод должен быть > 0");
@@ -26,7 +27,7 @@ namespace Lesson1
             }
             return num2;
         }
-
+        // рекурсивно
         static int FibRec(int n)
         {
             if (n < 1) throw new ArgumentException("Ввод должен быть > 0");

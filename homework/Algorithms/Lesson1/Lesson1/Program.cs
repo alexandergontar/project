@@ -8,7 +8,7 @@ namespace Lesson1
 {
     class Program
     {
-        // алгоритм определения простого числа
+        // выбор заданий по номеру урока
   
         static void Main(string[] args)
         {
