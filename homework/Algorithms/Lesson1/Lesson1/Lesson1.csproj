@@ -45,6 +45,12 @@
   <ItemGroup>
     <Compile Include="FibCase.cs" />
     <Compile Include="FibNumberCalc.cs" />
+    <Compile Include="Lesson2\BinTestCase.cs" />
+    <Compile Include="Lesson2\ElementSearch.cs" />
+    <Compile Include="Lesson2\ILinkedList.cs" />
+    <Compile Include="Lesson2\LinkedListImplement.cs" />
+    <Compile Include="Lesson2\LinkedListRun.cs" />
+    <Compile Include="Lesson2\Node.cs" />
     <Compile Include="PrimeNumberCalc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,5 +59,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
