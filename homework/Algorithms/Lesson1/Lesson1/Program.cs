@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Lesson1
 {
     class Program
@@ -12,7 +13,8 @@ namespace Lesson1
   
         static void Main(string[] args)
         {
-            Console.Write("Выберите номер урока (например 1): ");
+            
+            Console.Write("Выберите номер урока (например 2): ");
 
             int lessonNumber = 1;
             int.TryParse(Console.ReadLine(), out lessonNumber);
@@ -21,6 +23,10 @@ namespace Lesson1
                 case 1 :
                     PrimeNumberCalc.CheckPrime();
                     FibNumberCalc.CalculateFib();
+                    break;
+                case 2:
+                    Lesson2.LinkedListRun.CheckList();
+                    Lesson2.ElementSearch.RunBinarySearch();
                     break;
                 default:
                     Console.WriteLine("Проверьте ввод");
