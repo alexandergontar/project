@@ -1,0 +1,127 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+
+
+namespace BenchMark
+{
+    public class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+            //var summaryReport = BenchmarkRunner.Run<BechmarkClass>();
+        }
+        /// <summary>
+        /// Классы координат точек
+        /// </summary>
+        public class PointClass
+        {
+            public float X;
+            public float Y;
+        }
+        public struct PointStruct
+        {
+            public float X;
+            public float Y;
+            public double XD;
+            public double YD;
+        }
+
+        /// <summary>
+        /// Объект тестирования BechmarkClass
+        /// </summary>
+        //[MemoryDiagnoser]
+        public class BechmarkClass
+        {
+  
+            PointClass point1 = new PointClass() { X = 0, Y = 0 };
+            PointClass point2 = new PointClass() { X = 10, Y = 10 };
+            PointStruct pointOne = new PointStruct { X = 0, Y = 0, XD = 0, YD = 0 };
+            PointStruct pointTwo = new PointStruct { X = 10, Y = 10, XD = 10, YD = 10 };
+            /// <summary>
+            /// Расчет дистанции по данным ссылочного типа
+            /// Тип данных float
+            /// </summary>
+            /// <param name="pointOne">Координаты точки 1</param>
+            /// <param name="pointTwo">Координаты точки 2</param>
+            /// <returns></returns>
+            public float PointDistance(PointClass pointOne, PointClass pointTwo)
+            {
+                float x = pointOne.X - pointTwo.X;
+                float y = pointOne.Y - pointTwo.Y;
+                return (float)Math.Sqrt((x * x) + (y * y));                
+            }
+            /// <summary>
+            /// Расчет дистанции по данным значимого типа
+            /// Тип данных float
+            /// </summary>
+            /// <param name="pointOne">Координаты точки 1</param>
+            /// <param name="pointTwo">Координаты точки 2</param>
+            /// <returns></returns>
+            public float PointDistance(PointStruct pointOne, PointStruct pointTwo)
+            {
+                float x = pointOne.X - pointTwo.X;
+                float y = pointOne.Y - pointTwo.Y;
+                return (float)Math.Sqrt((x * x) + (y * y));                
+            }
+            /// <summary>
+            /// Расчет дистанции по данным значимого типа
+            /// упрощенно, без квадратного корня
+            /// Тип данных float
+            /// </summary>
+            /// <param name="pointOne">Координаты точки 1</param>
+            /// <param name="pointTwo">Координаты точки 2</param>
+            /// <returns></returns>
+            public float PointDistanceSimple(PointStruct pointOne, PointStruct pointTwo)
+            {
+                float x = pointOne.X - pointTwo.X;
+                float y = pointOne.Y - pointTwo.Y;
+                return (x * x) + (y * y);
+            }
+            /// <summary>
+            /// Расчет дистанции по данным значимого типа
+            /// Тип данных double
+            /// </summary>
+            /// <param name="pointOne">Координаты точки 1</param>
+            /// <param name="pointTwo">Координаты точки 2</param>
+            /// <returns></returns>
+            public double PointDistanceDouble(PointStruct pointOne, PointStruct pointTwo)
+            {
+                double x = pointOne.XD - pointTwo.XD;
+                double y = pointOne.YD - pointTwo.YD;
+                return Math.Sqrt((x * x) + (y * y));
+            }
+            /// <summary>
+            /// Benchmarks для тестирования вышеуказанных методов
+            /// </summary>
+            [Benchmark]
+            public void TestDistance()
+            {
+                PointDistance(point1, point2);
+            }
+            [Benchmark]
+            public void TestDistanceStruct()
+            {
+                PointDistance(pointOne, pointTwo);
+            }
+            [Benchmark]
+            public void TestDistanceStructDouble()
+            {
+                PointDistanceDouble(pointOne, pointTwo);
+            }
+            [Benchmark]
+            public void TestDistanceStructSimple()
+            {
+                PointDistanceSimple(pointOne, pointTwo);
+            }
+
+        }
+    }
+}
