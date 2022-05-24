@@ -51,6 +51,8 @@
     <Compile Include="Lesson2\LinkedListImplement.cs" />
     <Compile Include="Lesson2\LinkedListRun.cs" />
     <Compile Include="Lesson2\Node.cs" />
+    <Compile Include="Lesson3\Display.cs" />
+    <Compile Include="Lesson3\TestDistance.cs" />
     <Compile Include="PrimeNumberCalc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,7 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Lesson3\BenchMark.Program.BechmarkClass-report-github.md" />
+    <None Include="Lesson3\BenchMark.Program.BechmarkClass-report.csv" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Lesson3\BenchMark.Program.BechmarkClass-report.html" />
+    <None Include="Lesson3\Source.src" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
