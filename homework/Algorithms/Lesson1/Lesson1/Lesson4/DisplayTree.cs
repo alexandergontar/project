@@ -105,6 +105,12 @@ namespace Lesson1.Lesson4
             return null;
         }
 
+        /// <summary>
+        /// удаление узла по заданному значению
+        /// </summary>
+        /// <param name="parent">ставим корневой узел</param>
+        /// <param name="value">значение, по которому удалить</param>
+        /// <returns>Узел</returns>
         static TNode Remove(TNode parent, int value)
         {
             if (parent == null) return parent;
@@ -112,25 +118,24 @@ namespace Lesson1.Lesson4
             if (value < parent.Value) parent.LeftChild = Remove(parent.LeftChild, value);
             else if (value > parent.Value)
                 parent.RightChild = Remove(parent.RightChild, value);
-
-            // if value is same as parent's value, then this is the node to be deleted  
             else
-            {
-                // node with only one child or no child  
+            {                 
                 if (parent.LeftChild == null)
                     return parent.RightChild;
                 else if (parent.RightChild == null)
                     return parent.LeftChild;
 
-                // node with two children: Get the inorder successor (smallest in the right subtree)  
                 parent.Value = MinValue(parent.RightChild);
 
-                // Delete the inorder successor  
                 parent.RightChild = Remove(parent.RightChild, parent.Value);
             }
-
             return parent;
-        }
+        }        
+        /// <summary>
+        /// Поиск узла с минимальным значением
+        /// </summary>
+        /// <param name="node">узел</param>
+        /// <returns>минимальное значчение</returns>
         static int MinValue(TNode node)
         {
             int minv = node.Value;
@@ -144,8 +149,13 @@ namespace Lesson1.Lesson4
             return minv;
         }
 
+        /// <summary>
+        /// Создает дерево, распечатывает
+        /// применяеет методы
+        /// </summary>
         public static void CallTreeMethods() 
         {
+            Console.WriteLine("Создание двоичного дерева и стандартные операции над ним.");
             TNode root = new TNode(6);// корень
             // 1 уровень
             root.LeftChild = new TNode(2);
@@ -174,6 +184,7 @@ namespace Lesson1.Lesson4
             Console.WriteLine("=========Удаляем 31 ===========");
             Remove(root, 31);
             DispTree(root);
+            Console.WriteLine("Для продолжения нажмите любую клавишу и ждите");
             Console.ReadKey();
         }
     }

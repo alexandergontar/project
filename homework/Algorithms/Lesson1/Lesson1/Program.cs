@@ -36,7 +36,7 @@ namespace Lesson1
                     break;
                 case 4:
                     Lesson4.DisplayTree.CallTreeMethods();
-                    Lesson4.HashSetSearch.SearchString();
+                    Lesson4.HashSetSearch.CallSearchString();
                     //Console.ReadKey();
                     break;
                 default:
