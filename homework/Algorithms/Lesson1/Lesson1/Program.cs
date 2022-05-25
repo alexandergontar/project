@@ -15,7 +15,7 @@ namespace Lesson1
         static void Main(string[] args)
         {
             
-            Console.Write("Выберите номер урока (например 3): ");
+            Console.Write("Выберите номер урока (например 4): ");
 
             int lessonNumber = 1;
             int.TryParse(Console.ReadLine(), out lessonNumber);            
@@ -33,6 +33,11 @@ namespace Lesson1
                     Lesson3.TestDistance.Report(5);
                     Lesson3.Display.DisplayResults();
                     Console.ReadKey();
+                    break;
+                case 4:
+                    Lesson4.DisplayTree.CallTreeMethods();
+                    Lesson4.HashSetSearch.SearchString();
+                    //Console.ReadKey();
                     break;
                 default:
                     Console.WriteLine("Проверьте ввод");
