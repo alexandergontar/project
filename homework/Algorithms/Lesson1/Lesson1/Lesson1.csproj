@@ -53,6 +53,8 @@
     <Compile Include="Lesson2\Node.cs" />
     <Compile Include="Lesson3\Display.cs" />
     <Compile Include="Lesson3\TestDistance.cs" />
+    <Compile Include="Lesson4\DisplayTree.cs" />
+    <Compile Include="Lesson4\HashSetSearch.cs" />
     <Compile Include="PrimeNumberCalc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
