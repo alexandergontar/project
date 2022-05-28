@@ -8,11 +8,18 @@ namespace Lesson1
 {
     public class SubmitLesson
     {
-        private readonly Lesson5.IBfsDfs _bfsDfs;
+        /// <summary>
+        /// интерфейс урока 5
+        /// </summary>
+        private readonly Lesson5.IBfsDfs _IbfsDfs;
         private int _myInt;
+       /// <summary>
+       /// конструктор к уроку 5
+       /// </summary>
+       /// <param name="bfsDfs"></param>
         public SubmitLesson(Lesson5.IBfsDfs bfsDfs)
         {
-            _bfsDfs = bfsDfs;
+            _IbfsDfs = bfsDfs;
         }
         public SubmitLesson(int myInt) 
         {
@@ -21,7 +28,7 @@ namespace Lesson1
 
         public void DemoBfsDfs()
         {
-            _bfsDfs.BfsDfsDemo();
+            _IbfsDfs.BfsDfsDemo();
         }
 
         public void PrintNumber() 

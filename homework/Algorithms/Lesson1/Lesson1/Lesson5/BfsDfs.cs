@@ -36,7 +36,7 @@ namespace Lesson1.Lesson5
 
         private void BFS(TreeNode root, int searchValue)
         {
-            // breadth-first using a queue
+            // поиск вширину, используя очередь
             Queue<TreeNode> queue = new Queue<TreeNode>();
             queue.Enqueue(root);
             while (queue.Count > 0)
@@ -57,7 +57,7 @@ namespace Lesson1.Lesson5
 
         private void DFS(TreeNode root, int searchValue)
         {
-            // depth-first using a stack
+            // поиск в глубину, используя стек
             Stack<TreeNode> stack = new Stack<TreeNode>();
             stack.Push(root);
             while (stack.Count > 0)
@@ -75,7 +75,9 @@ namespace Lesson1.Lesson5
                     stack.Push(node.RightChild);
             }
         }
-
+        /// <summary>
+        /// создание дерева и вызов методов
+        /// </summary>
         public void BfsDfsDemo() 
         {
             TreeNode root = new TreeNode();
