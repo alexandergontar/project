@@ -14,8 +14,11 @@ namespace Lesson1
   
         static void Main(string[] args)
         {
-            
-            Console.Write("Выберите номер урока (например 4): ");
+
+            List<SubmitLesson> lessons = new List<SubmitLesson>();
+            lessons.Add(new SubmitLesson(new Lesson5.BfsDfs()));
+
+            Console.Write("Выберите номер урока (например 5): ");
 
             int lessonNumber = 1;
             int.TryParse(Console.ReadLine(), out lessonNumber);            
@@ -36,8 +39,10 @@ namespace Lesson1
                     break;
                 case 4:
                     Lesson4.DisplayTree.CallTreeMethods();
-                    Lesson4.HashSetSearch.CallSearchString();
-                    //Console.ReadKey();
+                    Lesson4.HashSetSearch.CallSearchString();                    
+                    break;
+                case 5: 
+                    lessons[0].DemoBfsDfs();
                     break;
                 default:
                     Console.WriteLine("Проверьте ввод");
