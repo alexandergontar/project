@@ -43,36 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FibCase.cs" />
-    <Compile Include="FibNumberCalc.cs" />
-    <Compile Include="Lesson2\BinTestCase.cs" />
-    <Compile Include="Lesson2\ElementSearch.cs" />
-    <Compile Include="Lesson2\ILinkedList.cs" />
-    <Compile Include="Lesson2\LinkedListImplement.cs" />
-    <Compile Include="Lesson2\LinkedListRun.cs" />
-    <Compile Include="Lesson2\Node.cs" />
-    <Compile Include="Lesson3\Display.cs" />
-    <Compile Include="Lesson3\TestDistance.cs" />
-    <Compile Include="Lesson4\DisplayTree.cs" />
-    <Compile Include="Lesson4\HashSetSearch.cs" />
-    <Compile Include="Lesson5\BfsDfs.cs" />
-    <Compile Include="Lesson5\Demo.cs" />
-    <Compile Include="Lesson5\IBfsDfs.cs" />
-    <Compile Include="Lesson5\TreeNode.cs" />
-    <Compile Include="PrimeNumberCalc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SubmitLesson.cs" />
-    <Compile Include="TestCase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Lesson3\BenchMark.Program.BechmarkClass-report-github.md" />
-    <None Include="Lesson3\BenchMark.Program.BechmarkClass-report.csv" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Lesson3\BenchMark.Program.BechmarkClass-report.html" />
-    <None Include="Lesson3\Source.src" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lessons\Lessons.csproj">

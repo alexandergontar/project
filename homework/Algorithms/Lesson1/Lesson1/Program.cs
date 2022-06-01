@@ -29,9 +29,10 @@ namespace Lesson1
   
         static void Main(string[] args)
         {          
-          
+            // грузим сборку из файла
             Assembly asm = Assembly.LoadFrom("Lessons.dll");
-            Type[] types = asm.GetTypes(); 
+            Type[] types = asm.GetTypes();
+            // сздаем список уроков с единым интерфейсом
             List<ILesson> lessons = new List<ILesson>();
             ILesson l1 = (Lessons.L1.A_Lesson1)Activator.CreateInstance(SelectTypeByName(types, "A_Lesson1"));
             ILesson l2 = (Lessons.L2.B_Lesson2)Activator.CreateInstance(SelectTypeByName(types, "B_Lesson2"));
@@ -43,9 +44,8 @@ namespace Lesson1
             lessons.Add(l3);
             lessons.Add(l4);
             lessons.Add(l5);   
-
+            // выбор урока по номеру
             Console.Write("Выберите номер урока (например 5): ");
-
             int lessonNumber = 1;
             int.TryParse(Console.ReadLine(), out lessonNumber);
             try
