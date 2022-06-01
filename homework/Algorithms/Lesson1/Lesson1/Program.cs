@@ -4,51 +4,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Lessons;
+using System.Reflection;
 
 
 namespace Lesson1
 {
     class Program
-    {
-        // выбор заданий по номеру урока
+    {        
+
+        static  Type SelectTypeByName(Type[] types, string name) 
+        {
+            foreach (Type t in types)
+            {
+                
+                if (t.Name == name)
+                {                    
+                    return t;
+                }
+
+            }
+            return null;
+        }
   
         static void Main(string[] args)
-        {
-
-            List<SubmitLesson> lessons = new List<SubmitLesson>();
-            lessons.Add(new SubmitLesson(new Lesson5.BfsDfs()));
+        {          
+          
+            Assembly asm = Assembly.LoadFrom("Lessons.dll");
+            Type[] types = asm.GetTypes(); 
+            List<ILesson> lessons = new List<ILesson>();
+            ILesson l1 = (Lessons.L1.A_Lesson1)Activator.CreateInstance(SelectTypeByName(types, "A_Lesson1"));
+            ILesson l2 = (Lessons.L2.B_Lesson2)Activator.CreateInstance(SelectTypeByName(types, "B_Lesson2"));
+            ILesson l3 = (Lessons.L3.C_Lesson3)Activator.CreateInstance(SelectTypeByName(types, "C_Lesson3"));
+            ILesson l4 = (Lessons.L4.D_Lesson4)Activator.CreateInstance(SelectTypeByName(types, "D_Lesson4"));
+            ILesson l5 = (Lessons.L5.E_Lesson5)Activator.CreateInstance(SelectTypeByName(types, "E_Lesson5"));
+            lessons.Add(l1);
+            lessons.Add(l2);
+            lessons.Add(l3);
+            lessons.Add(l4);
+            lessons.Add(l5);   
 
             Console.Write("Выберите номер урока (например 5): ");
 
             int lessonNumber = 1;
-            int.TryParse(Console.ReadLine(), out lessonNumber);            
-            switch (lessonNumber)
+            int.TryParse(Console.ReadLine(), out lessonNumber);
+            try
             {
-                case 1 :
-                    PrimeNumberCalc.CheckPrime();
-                    FibNumberCalc.CalculateFib();
-                    break;
-                case 2 :
-                    Lesson2.LinkedListRun.CheckList();
-                    Lesson2.ElementSearch.RunBinarySearch();
-                    break;
-                case 3 :  
-                    Lesson3.TestDistance.Report(5);
-                    Lesson3.Display.DisplayResults();
-                    Console.ReadKey();
-                    break;
-                case 4:
-                    Lesson4.DisplayTree.CallTreeMethods();
-                    Lesson4.HashSetSearch.CallSearchString();                    
-                    break;
-                case 5: 
-                    lessons[0].DemoBfsDfs();
-                    break;
-                default:
-                    Console.WriteLine("Проверьте ввод");
-                    Console.ReadKey(true);
-                    break;
+              lessons[lessonNumber - 1].RunLesson();
             }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+                Console.ReadKey();
+            }           
+    
         }
     }
 }

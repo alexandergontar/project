@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E43415F7-C728-4AB8-A8D7-840502C1D0EE}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Lesson1</RootNamespace>
-    <AssemblyName>Lesson1</AssemblyName>
+    <ProjectGuid>{FB3888AE-935D-4182-96A0-78BDC2DE362A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lessons</RootNamespace>
+    <AssemblyName>Lessons</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,42 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FibCase.cs" />
-    <Compile Include="FibNumberCalc.cs" />
-    <Compile Include="Lesson2\BinTestCase.cs" />
-    <Compile Include="Lesson2\ElementSearch.cs" />
-    <Compile Include="Lesson2\ILinkedList.cs" />
-    <Compile Include="Lesson2\LinkedListImplement.cs" />
-    <Compile Include="Lesson2\LinkedListRun.cs" />
-    <Compile Include="Lesson2\Node.cs" />
-    <Compile Include="Lesson3\Display.cs" />
-    <Compile Include="Lesson3\TestDistance.cs" />
-    <Compile Include="Lesson4\DisplayTree.cs" />
-    <Compile Include="Lesson4\HashSetSearch.cs" />
-    <Compile Include="Lesson5\BfsDfs.cs" />
-    <Compile Include="Lesson5\Demo.cs" />
-    <Compile Include="Lesson5\IBfsDfs.cs" />
-    <Compile Include="Lesson5\TreeNode.cs" />
-    <Compile Include="PrimeNumberCalc.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ILesson.cs" />
+    <Compile Include="L1\A_Lesson1.cs" />
+    <Compile Include="L1\FibCase.cs" />
+    <Compile Include="L1\FibNumberCalc.cs" />
+    <Compile Include="L1\PrimeNumberCalc.cs" />
+    <Compile Include="L1\TestCase.cs" />
+    <Compile Include="L2\BinTestCase.cs" />
+    <Compile Include="L2\B_Lesson2.cs" />
+    <Compile Include="L2\ElementSearch.cs" />
+    <Compile Include="L2\ILinkedList.cs" />
+    <Compile Include="L2\LinkedListImplement.cs" />
+    <Compile Include="L2\LinkedListRun.cs" />
+    <Compile Include="L2\Node.cs" />
+    <Compile Include="L3\C_Lesson3.cs" />
+    <Compile Include="L3\TestDistance.cs" />
+    <Compile Include="L4\DisplayTree.cs" />
+    <Compile Include="L4\D_Lesson4.cs" />
+    <Compile Include="L4\HashSetSearch.cs" />
+    <Compile Include="L5\BfsDfs.cs" />
+    <Compile Include="L5\E_Lesson5.cs" />
+    <Compile Include="L5\TreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SubmitLesson.cs" />
-    <Compile Include="TestCase.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Lesson3\BenchMark.Program.BechmarkClass-report-github.md" />
-    <None Include="Lesson3\BenchMark.Program.BechmarkClass-report.csv" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Lesson3\BenchMark.Program.BechmarkClass-report.html" />
-    <None Include="Lesson3\Source.src" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lessons\Lessons.csproj">
-      <Project>{fb3888ae-935d-4182-96a0-78bdc2de362a}</Project>
-      <Name>Lessons</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
