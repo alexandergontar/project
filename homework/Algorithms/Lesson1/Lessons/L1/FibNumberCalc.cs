@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1
+namespace Lessons.L1
 {
     public class FibNumberCalc
     {
         // вычисление значений ряда Фиббоначи
-        static int Fib(int end)
+        int Fib(int end)
         {
             if (end < 1) throw new ArgumentException("Ввод должен быть > 0");
             if (end == 1) return 0;
@@ -28,7 +28,7 @@ namespace Lesson1
             return num2;
         }
         // рекурсивно
-        static int FibRec(int n)
+        int FibRec(int n)
         {
             if (n < 1) throw new ArgumentException("Ввод должен быть > 0");
             if (n == 1 || n == 2)
@@ -37,7 +37,7 @@ namespace Lesson1
             }
             return FibRec(n - 1) + FibRec(n - 2);
         }
-        static void TestFib(FibCase test, bool rec)
+        void TestFib(FibCase test, bool rec)
         {
             Console.Write($"Тест для {test.Input} на входе ");
             if (rec) Console.WriteLine("рекурсивно");
@@ -78,7 +78,7 @@ namespace Lesson1
             }
         }
 
-        public static void CalculateFib() 
+        public void CalculateFib()
         {
             int end = 1;
             Console.WriteLine("Вычисление значение ряда Фиббоначи по номеру члена.");

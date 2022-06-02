@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1
+namespace Lessons.L1
 {
     public class TestCase
     {

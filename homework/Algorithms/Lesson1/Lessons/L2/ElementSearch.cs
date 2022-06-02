@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1.Lesson2
+namespace Lessons.L2
 {
     public class ElementSearch
     {
-        static int BinarySearch(int[] inputArray, int searchValue)
+        int BinarySearch(int[] inputArray, int searchValue)
         {
             int min = 0;
             int max = inputArray.Length - 1;
@@ -31,7 +31,7 @@ namespace Lesson1.Lesson2
             return -1;
         }
 
-        static void TestBinarySearch(BinTestCase testCase)
+        void TestBinarySearch(BinTestCase testCase)
         {
             Console.WriteLine("Упорядоченный массив:");
             for (int i = 0; i < testCase.inputArray.Length; i++)
@@ -52,7 +52,7 @@ namespace Lesson1.Lesson2
 
         }
 
-        public static void RunBinarySearch() 
+        public void RunBinarySearch()
         {
             int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
             Console.WriteLine("Упорядоченный массив:");

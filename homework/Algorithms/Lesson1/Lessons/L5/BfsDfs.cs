@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1.Lesson5
+namespace Lessons.L5
 {
-   public class BfsDfs : IBfsDfs
+    public class BfsDfs
     {
-        readonly int COUNT = 10; 
+        readonly int COUNT = 10;
 
         private void PrintTree(TreeNode root, int space)
         {
@@ -78,7 +78,7 @@ namespace Lesson1.Lesson5
         /// <summary>
         /// создание дерева и вызов методов
         /// </summary>
-        public void BfsDfsDemo() 
+        public void BfsDfsDemo()
         {
             TreeNode root = new TreeNode();
             root.Value = 6; //root
@@ -97,7 +97,7 @@ namespace Lesson1.Lesson5
             TreeNode node30 = new TreeNode(); // node11 right
             node30.Value = 30;
             node11.LeftChild = node9;
-            node11.RightChild = node30;            
+            node11.RightChild = node30;
             Console.WriteLine("==Дерево. Вид слева направо===");
             PrintTree(root, 0);
             Console.WriteLine("==Поиск значения 30 в ширину===");
@@ -106,6 +106,5 @@ namespace Lesson1.Lesson5
             DFS(root, 3);
             Console.ReadKey();
         }
-
     }
 }

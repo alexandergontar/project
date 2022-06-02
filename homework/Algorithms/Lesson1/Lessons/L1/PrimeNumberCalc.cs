@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1
+namespace Lessons.L1
 {
     public class PrimeNumberCalc
     {
         // алгоритм определения простого числа
-        static bool PrimeNumber(string n)
+        bool PrimeNumber(string n)
         {
             bool result = false;
             int number;
@@ -45,7 +45,7 @@ namespace Lesson1
             return result;
         }
 
-        static void TestPrimeNumber(TestCase testCase)
+        void TestPrimeNumber(TestCase testCase)
         {
             Console.WriteLine($"Тест для {testCase.Input} на входе");
             try
@@ -78,7 +78,7 @@ namespace Lesson1
             }
         }
 
-        public static void CheckPrime() 
+        public void CheckPrime()
         {
             Console.WriteLine("Определить простое ли число.");
             Console.Write("Введите число: ");

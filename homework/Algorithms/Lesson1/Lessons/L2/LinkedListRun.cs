@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1.Lesson2
+namespace Lessons.L2
 {
     public class LinkedListRun
     {
-        public static void CheckList() 
+        public  void CheckList()
         {
             // создаем список из 3-х элементов
             Console.WriteLine("Создаем список из 3-х элементов с значениями 1, 2 и 3");
@@ -24,12 +24,12 @@ namespace Lesson1.Lesson2
             Console.WriteLine("Применяем реализованные методы для данного ILinkedList");
             ILinkedList inter = new LinkedListImplement();
             int count = inter.GetCount(node1);
-            Console.WriteLine("Начальное число элементов: "+count);
+            Console.WriteLine("Начальное число элементов: " + count);
             inter.AddNodeAfter(node2, 10);
             Console.WriteLine("Применяем AddNodeAfter(node2, 10)");
             count = inter.GetCount(node1);
-            Console.WriteLine("Новое число элементов: "+count);
-            Console.WriteLine("Значение нового элемента: "+node2.NextNode.Value);
+            Console.WriteLine("Новое число элементов: " + count);
+            Console.WriteLine("Значение нового элемента: " + node2.NextNode.Value);
             inter.AddNode(node1, 30);
             Console.WriteLine("Применяем AddNode(node1, 30)");
             count = inter.GetCount(node1);
@@ -41,7 +41,7 @@ namespace Lesson1.Lesson2
             if (inter.FindNode(node2, 30) != null)
             {
                 Console.WriteLine("Поиск элемента по значению: FindNode(node2, 30)");
-                Console.WriteLine("Вывод значения: "+inter.FindNode(node2, 30).Value);
+                Console.WriteLine("Вывод значения: " + inter.FindNode(node2, 30).Value);
             }
             inter.RemoveNode(node1, 2);
             Console.WriteLine("Удаляем элемент по его значению- RemoveNode(node1, 2)");

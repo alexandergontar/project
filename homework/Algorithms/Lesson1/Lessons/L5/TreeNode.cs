@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1.Lesson5
+namespace Lessons.L5
 {
     public class TreeNode
     {

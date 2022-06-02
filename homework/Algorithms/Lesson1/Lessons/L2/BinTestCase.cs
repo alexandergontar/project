@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1.Lesson2
+namespace Lessons.L2
 {
     public class BinTestCase
     {

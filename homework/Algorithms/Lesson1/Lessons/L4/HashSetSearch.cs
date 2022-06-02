@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Lesson1.Lesson4
+namespace Lessons.L4
 {
     public class HashSetSearch
     {
@@ -16,7 +16,7 @@ namespace Lesson1.Lesson4
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Уникальная строка</returns>
-        static string GetProtectedID(int id)
+        string GetProtectedID(int id)
         {
             using (var sha = System.Security.Cryptography.SHA1.Create())
             {
@@ -28,7 +28,7 @@ namespace Lesson1.Lesson4
         /// псевдослучайной длины
         /// </summary>
         /// <returns></returns>
-        static string Generate()
+        string Generate()
         {
             Random res = new Random(DateTime.Now.Ticks.GetHashCode());
 
@@ -50,7 +50,7 @@ namespace Lesson1.Lesson4
         /// случайных строк, вставляет одну заданную,
         /// потом производит ее поиск
         /// </summary>
-        public static void SearchString(int N)
+        public void SearchString(int N)
         {
             HashSet<string> randStrings = new HashSet<string>();
 
@@ -94,7 +94,7 @@ namespace Lesson1.Lesson4
             Console.WriteLine($"Время поиска: {mils } млсек.");
         }
 
-        public static void CallSearchString()
+        public void CallSearchString()
         {
             Console.WriteLine("Несколько случайных замеров времени поиска для разного размера коллекции");
             SearchString(10000);

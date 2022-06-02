@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1.Lesson3
+namespace Lessons.L3
 {
     public class TestDistance
     {
@@ -28,10 +28,10 @@ namespace Lesson1.Lesson3
         /// </summary>
         /// <param name="arrLength">Длина массива</param>
         /// <returns> PointClass[]</returns>
-        public static PointClass[] CreateArray(int arrLength) 
+        public  PointClass[] CreateArray(int arrLength)
         {
-            PointClass[] array = new PointClass[arrLength]; 
-            
+            PointClass[] array = new PointClass[arrLength];
+
             Random rnd = new Random();
             for (int i = 0; i < arrLength; i++)
             {
@@ -47,7 +47,7 @@ namespace Lesson1.Lesson3
         /// </summary>
         /// <param name="arrLength">Длина массива</param>
         /// <returns>PointStruct[]</returns>
-        public static PointStruct[] CreateStructArray(int arrLength)
+        public  PointStruct[] CreateStructArray(int arrLength)
         {
             PointStruct[] array = new PointStruct[arrLength];
 
@@ -67,8 +67,8 @@ namespace Lesson1.Lesson3
         /// <param name="pointOne">координаты точки 1</param>
         /// <param name="pointTwo">координаты точки 2</param>
         /// <returns>double</returns>
- 
-        public static double PointDistance(PointStruct pointOne, PointStruct pointTwo)
+
+        public  double PointDistance(PointStruct pointOne, PointStruct pointTwo)
         {
 
             double x = pointOne.X - pointTwo.X;
@@ -81,7 +81,7 @@ namespace Lesson1.Lesson3
         /// <param name="pointOne">координаты точки 1</param>
         /// <param name="pointTwo">координаты точки 2</param>
         /// <returns>double</returns>
-        public static double PointDistance(PointClass pointOne, PointClass pointTwo)
+        public  double PointDistance(PointClass pointOne, PointClass pointTwo)
         {
             double x = pointOne.X - pointTwo.X;
             double y = pointOne.Y - pointTwo.Y;
@@ -93,8 +93,8 @@ namespace Lesson1.Lesson3
         /// </summary>
         /// <param name="number">Длина массива</param>
         /// <returns>TimeSpan</returns>
-        public static TimeSpan Test1(int number)
-        { 
+        public  TimeSpan Test1(int number)
+        {
 
             PointClass[] array1 = CreateArray(number);
             PointClass[] array2 = CreateArray(number);
@@ -102,8 +102,8 @@ namespace Lesson1.Lesson3
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             for (int i = 0; i < number; i++)
-            {                
-                PointDistance(array1[i], array2[i]);               
+            {
+                PointDistance(array1[i], array2[i]);
             }
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
@@ -118,7 +118,7 @@ namespace Lesson1.Lesson3
         /// </summary>
         /// <param name="number">Длина массива</param>
         /// <returns>TimeSpan</returns>
-        public static TimeSpan Test2(int number)
+        public  TimeSpan Test2(int number)
         {
             PointStruct point1 = new PointStruct { X = 0, Y = 0 };
             PointStruct point2 = new PointStruct { X = 10, Y = 10 };
@@ -127,7 +127,7 @@ namespace Lesson1.Lesson3
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             for (int i = 0; i < number; i++)
-            {               
+            {
                 PointDistance(array1[i], array2[i]);
             }
             stopWatch.Stop();
@@ -142,27 +142,26 @@ namespace Lesson1.Lesson3
         /// <summary>
         /// Вывод результатов
         /// </summary>
-        public static void Report(int measureNumber) 
+        public  void Report(int measureNumber)
         {
             TimeSpan ts1, ts2;
             float ratio;
             for (int i = 0; i < measureNumber; i++)
             {
                 Console.Write("Массив классов, точек: 1000000- ");
-                ts1=Test1(1000000);
+                ts1 = Test1(1000000);
                 Console.Write("Массив структур, точек: 1000000- ");
-                ts2=Test2(1000000);
+                ts2 = Test2(1000000);
                 ratio = (float)ts1.Milliseconds / (float)ts2.Milliseconds;
                 Console.WriteLine($"Соотношение: {ratio}");
                 Console.Write("Массив классов, точек: 5000000- ");
-                ts1=Test1(5000000);
+                ts1 = Test1(5000000);
                 Console.Write("Массив структур, точек: 5000000- ");
-                ts2=Test2(5000000);
+                ts2 = Test2(5000000);
                 ratio = (float)ts1.Milliseconds / (float)ts2.Milliseconds;
                 Console.WriteLine($"Соотношение: {ratio}");
                 Console.WriteLine("=======================");
             }
         }
-
     }
 }

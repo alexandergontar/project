@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1.Lesson4
+namespace Lessons.L4
 {
     public class DisplayTree
     {
-        static readonly int COUNT = 10;
+        readonly int COUNT = 10;
         public class TNode
         {
             public int Value;
@@ -31,7 +31,7 @@ namespace Lesson1.Lesson4
         /// </summary>
         /// <param name="root">Корневой элемент</param>
         /// <param name="space">Промежуток</param>
-        static void PrintTree(TNode root, int space)
+        void PrintTree(TNode root, int space)
         {
             // Base case
             if (root == null)
@@ -56,7 +56,7 @@ namespace Lesson1.Lesson4
         }
 
         // Обертка 
-        static void DispTree(TNode root)
+        void DispTree(TNode root)
         {
             // Изначальный промежуток 0
             PrintTree(root, 0);
@@ -67,7 +67,7 @@ namespace Lesson1.Lesson4
         /// <param name="root">корень</param>
         /// <param name="v">значение</param>
         /// <returns>Узел</returns>
-        static TNode Insert(TNode root, int v)
+        TNode Insert(TNode root, int v)
         {
             if (root == null)
             {
@@ -91,7 +91,7 @@ namespace Lesson1.Lesson4
         /// <param name="value">значение</param>
         /// <param name="parent">корневой узел</param>
         /// <returns>искомый узел</returns>
-        static TNode Find(int value, TNode parent)
+        TNode Find(int value, TNode parent)
         {
             if (parent != null)
             {
@@ -111,7 +111,7 @@ namespace Lesson1.Lesson4
         /// <param name="parent">ставим корневой узел</param>
         /// <param name="value">значение, по которому удалить</param>
         /// <returns>Узел</returns>
-        static TNode Remove(TNode parent, int value)
+        TNode Remove(TNode parent, int value)
         {
             if (parent == null) return parent;
 
@@ -119,7 +119,7 @@ namespace Lesson1.Lesson4
             else if (value > parent.Value)
                 parent.RightChild = Remove(parent.RightChild, value);
             else
-            {                 
+            {
                 if (parent.LeftChild == null)
                     return parent.RightChild;
                 else if (parent.RightChild == null)
@@ -130,13 +130,13 @@ namespace Lesson1.Lesson4
                 parent.RightChild = Remove(parent.RightChild, parent.Value);
             }
             return parent;
-        }        
+        }
         /// <summary>
         /// Поиск узла с минимальным значением
         /// </summary>
         /// <param name="node">узел</param>
         /// <returns>минимальное значчение</returns>
-        static int MinValue(TNode node)
+        int MinValue(TNode node)
         {
             int minv = node.Value;
 
@@ -153,7 +153,7 @@ namespace Lesson1.Lesson4
         /// Создает дерево, распечатывает
         /// применяеет методы
         /// </summary>
-        public static void CallTreeMethods() 
+        public void CallTreeMethods()
         {
             Console.WriteLine("Создание двоичного дерева и стандартные операции над ним.");
             TNode root = new TNode(6);// корень
