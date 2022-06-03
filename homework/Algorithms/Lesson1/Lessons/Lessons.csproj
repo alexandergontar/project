@@ -62,7 +62,11 @@
     <Compile Include="L5\BfsDfs.cs" />
     <Compile Include="L5\E_Lesson5.cs" />
     <Compile Include="L5\TreeNode.cs" />
+    <Compile Include="L6\F_Lesson6.cs" />
+    <Compile Include="L7\F8.cs" />
+    <Compile Include="L7\G_Lesson7.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

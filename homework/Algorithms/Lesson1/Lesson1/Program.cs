@@ -11,50 +11,37 @@ using System.Reflection;
 namespace Lesson1
 {
     class Program
-    {        
-
-        static  Type SelectTypeByName(Type[] types, string name) 
-        {
-            foreach (Type t in types)
-            {
-                
-                if (t.Name == name)
-                {                    
-                    return t;
-                }
-
-            }
-            return null;
-        }
+    {      
   
         static void Main(string[] args)
         {          
             // грузим сборку из файла
             Assembly asm = Assembly.LoadFrom("Lessons.dll");
             Type[] types = asm.GetTypes();
-            // сздаем список уроков с единым интерфейсом
+          // сздаем список уроков с единым интерфейсом
             List<ILesson> lessons = new List<ILesson>();
-            ILesson l1 = (Lessons.L1.A_Lesson1)Activator.CreateInstance(SelectTypeByName(types, "A_Lesson1"));
-            ILesson l2 = (Lessons.L2.B_Lesson2)Activator.CreateInstance(SelectTypeByName(types, "B_Lesson2"));
-            ILesson l3 = (Lessons.L3.C_Lesson3)Activator.CreateInstance(SelectTypeByName(types, "C_Lesson3"));
-            ILesson l4 = (Lessons.L4.D_Lesson4)Activator.CreateInstance(SelectTypeByName(types, "D_Lesson4"));
-            ILesson l5 = (Lessons.L5.E_Lesson5)Activator.CreateInstance(SelectTypeByName(types, "E_Lesson5"));
-            lessons.Add(l1);
-            lessons.Add(l2);
-            lessons.Add(l3);
-            lessons.Add(l4);
-            lessons.Add(l5);   
+            foreach (Type t in types)
+            {
+                if (typeof(ILesson).IsAssignableFrom(t) && t.Name != "ILesson")
+                {
+                    ILesson l = Activator.CreateInstance(t) as ILesson;
+                    lessons.Add(l);
+                   // Console.WriteLine(t.Name);
+                }
+            }  
+          
+ 
             // выбор урока по номеру
-            Console.Write("Выберите номер урока (например 5): ");
+            Console.Write("Выберите номер урока (например 7): ");
             int lessonNumber = 1;
             int.TryParse(Console.ReadLine(), out lessonNumber);
+            int i = lessons.Count - lessonNumber;
             try
-            {
-              lessons[lessonNumber - 1].RunLesson();
+            {                
+                lessons[i].RunLesson();
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.ToString());
                 Console.ReadKey();
             }           
