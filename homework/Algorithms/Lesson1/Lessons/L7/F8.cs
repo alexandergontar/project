@@ -40,7 +40,7 @@ namespace Lessons.L7
         }
         // Проверка нахождения ферзей (хотя бы одного)
         // на главных диагоналях: нет - true, есть - false 
-        public bool provG()
+        public bool CheckG()
         {
             bool b = false;
             for (int i = 1; i <= 8; i++)
@@ -55,7 +55,7 @@ namespace Lessons.L7
             return b;
         }
         // Перебор 8^8 = 16 777 216 вариантов 
-        public void provM()
+        public void CheckM()
         {
             int count = 0;  // счетчик допустимых расстановок
                             // byte j1 = 2; // если первого ферзя поставить на a2, 
@@ -88,7 +88,7 @@ namespace Lessons.L7
                                             CheckP();
                                             if (p[0] == 28)
                                             {
-                                                bool b = provG(); // true - если хотя бы один ферзь на главных диагоналях
+                                                bool b = CheckG(); // true - если хотя бы один ферзь на главных диагоналях
                                                 b = false; //- тогда все 92 решения. Если закомментируем его, то 12
                                                 if (!b)
                                                 {
@@ -110,7 +110,7 @@ namespace Lessons.L7
             Console.WriteLine("Всего расстановок - {0}", count);
         }
         // Интервал времени между tstart и tfinish
-        public void TimePoisk()
+        public void SearchTime()
         {
             int dt, ds, dm, dh;
             dt = tfinish.Hour * 3600 + tfinish.Minute * 60 + tfinish.Second - tstart.Hour * 3600 - tstart.Minute * 60 - tstart.Second;
@@ -129,9 +129,9 @@ namespace Lessons.L7
         {
             F8 d = new F8();
             d.tstart = DateTime.Now;
-            d.provM();
+            d.CheckM();
             d.tfinish = DateTime.Now;
-            d.TimePoisk();
+            d.SearchTime();
             Console.ReadKey();
         }
     }
