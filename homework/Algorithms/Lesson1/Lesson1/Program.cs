@@ -32,7 +32,7 @@ namespace Lesson1
           
  
             // выбор урока по номеру
-            Console.Write("Выберите номер урока (например 7): ");
+            Console.Write("Выберите номер урока (например 8): ");
             int lessonNumber = 1;
             int.TryParse(Console.ReadLine(), out lessonNumber);
             int i = lessons.Count - lessonNumber;

@@ -10,7 +10,9 @@ namespace Lessons.L8
     {
         public void RunLesson()
         {
-            Console.WriteLine("===== Урок 8 ======");
+            Console.WriteLine("===== Сортировка подсчетом ======");
+            CountingSorting cs = new CountingSorting();
+            cs.Sort();
             Console.ReadKey();
         }
     }
