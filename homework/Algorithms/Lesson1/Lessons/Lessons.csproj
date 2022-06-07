@@ -65,6 +65,7 @@
     <Compile Include="L6\F_Lesson6.cs" />
     <Compile Include="L7\F8.cs" />
     <Compile Include="L7\G_Lesson7.cs" />
+    <Compile Include="L8\H_Lesson8.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
